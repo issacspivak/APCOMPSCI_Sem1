@@ -13,8 +13,9 @@ public class Lab_02
 		String city = "San Diego";
 		int zip = 92014;
 		
-		System.out.println(name + ", " + address);
-		System.out.println(city + ", " + zip);
+		System.out.println(name);
+		System.out.println(address);
+		System.out.println(city + ", CA " + zip);
 		
 		int l = 13;
 		int w = 2;
