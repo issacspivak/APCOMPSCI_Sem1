@@ -7,7 +7,7 @@ public class Cube
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Enter the length of one side:");
 		float side = kb.nextFloat();
-		float sa = side*side*side;
+		float sa = (side*side)*6;
 		print(side, sa);
 		
 	}
