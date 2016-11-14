@@ -10,9 +10,9 @@ public class Lab_06_ex5
 		int pattern = kb.nextInt();
 		
 		
-		for(int i = 0; i <= limit; i + pattern)
+		for(int i = 0; i <= limit; i+= pattern)
 		{
-			System.out.printf("%.1f \t", i);
+			System.out.print(i + "\t");
 		}
 		
 	}
