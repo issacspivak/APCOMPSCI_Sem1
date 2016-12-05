@@ -7,7 +7,7 @@ public class Lab_06_ex2
 		System.out.println("Please enter a number: ");
 		int num = kb.nextInt();
 		
-		for(int i = 1; i < num; i++)
+		for(int i = 1; i <= num; i++)
 		{
 			System.out.println(num*i);
 		}
