@@ -1,4 +1,4 @@
-public class Lab_09_1_ex1
+public class Lab_09_ex6
 {
 	
 	public static void main(String[]args)
@@ -15,30 +15,31 @@ public class Lab_09_1_ex1
 			numbers[i] = (int)(Math.random() * 100) + 1;
 		}
 		printArray(numbers);
+		System.out.println(" ");
 	}
 	
 	public static void printArray(int [] numbers)
 	{
+		System.out.print("For all the following numbers... ");
 		for(int number : numbers)
 		{
 			System.out.print(number + " ");
 		}
+		System.out.println("The biggest number is " + getBiggest(numbers));
 	}
 	
-	public static void getOdds(int [] numbers)
+	public static int getBiggest(int [] numbers)
 	{
-		String odds;
+		int max = 0;
 		for(int number : numbers)
 		{
-			if(number % 2 == 0)
+			if(number > max)
 			{
+				max = number;
 	
 			}
-			else 
-			{
-				System.out.print(number);
-			}
 		}
+		return max;
 	}
 	
 }
