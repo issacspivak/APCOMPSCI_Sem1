@@ -16,8 +16,9 @@ public class Lab_08_ex4
 	{
 		if(start <= stop)
 		{
+			System.out.printf("%8s", word.substring(0, start));
+			System.out.println();
 			start++;
-			System.out.println(word.substring(0, start));
 			tree(word, start, stop);
 		}
 		

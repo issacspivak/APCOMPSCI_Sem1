@@ -1,28 +1,36 @@
 import java.util.Scanner;
 public class Lab_08_ex3
 {
-	static String number;
 	
 	public static void main(String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Enter the number: ");
-		number = kb.next();
+		int number = kb.nextInt();
 		
-		System.out.println(makeCenter(word1));
+		System.out.println("The number of 7s is " + luck(number));
 		
 	} 
 	
-	public static String luck(String number)
+	public static int luck(int number)
 	{
 		if(number > 0)
 		{
-			if(number.substring(0, number.length()) == 7)
-				return "1";
-				luck();
+			if(number % 10 == 7)
+			{	
+				return 1 + luck(number/10);
+			}
+			
+			else 
+			{
+				return 0 + luck(number/10);
+			}
+				
 		}
 		else
-			return "0";
+		{
+			return 0;
+		}
 		
 	}
 }	

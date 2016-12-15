@@ -19,7 +19,7 @@ public class Lab_07_ex4
 		while (i >= 0)
 		{
 			num = sentence.indexOf("a") + 1;
-			System.out.println(sentence.substring(0, sentence.indexOf("a")) + "@" + sentence.substring(num));
+			System.out.println(sentence.substring(0, sentence.indexOf("a")) + "@" + sentence.substring(num, sentence.length()));
 			i--;
 		}
 			
