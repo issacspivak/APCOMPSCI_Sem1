@@ -9,19 +9,20 @@ public class Lab_07_ex4
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Enter a sentence: ");
-		sentence = kb.next();
+		sentence = kb.nextLine();
 		replace();
 	}
 	
 	public static void replace()
 	{
-		i = sentence.indexOf("a");
-		while (i >= 0)
+		
+		while (sentence.indexOf("a") >= 0)
 		{
 			num = sentence.indexOf("a") + 1;
-			System.out.println(sentence.substring(0, sentence.indexOf("a")) + "@" + sentence.substring(num, sentence.length()));
-			i--;
+			sentence = (sentence.substring(0, sentence.indexOf("a")) + "@" + sentence.substring(num, sentence.length()));
+			
 		}
+		System.out.println(sentence);
 			
 	}
 }
