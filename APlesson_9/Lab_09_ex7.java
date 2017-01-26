@@ -11,7 +11,7 @@ public class Lab_09_ex7
 		
 	}
 	
-	public static String fillArray(String [] words)
+	public static void fillArray(String [] words)
 	{
 		Scanner kb = new Scanner(System.in);
 		
