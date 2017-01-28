@@ -1,12 +1,12 @@
 import java.util.Scanner;
 public class Cube2
 {
-
+	static double side;
 	public static void main(String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Enter the length of one side:");
-		double side = kb.nextDouble();
+		side = kb.nextDouble();
 		print(side, calcAnswer(side));
 		
 	}
