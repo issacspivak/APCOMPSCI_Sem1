@@ -1,6 +1,7 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
+
 public class Lab_10_ex2
 {
 	public static void main(String[]args)
@@ -10,30 +11,35 @@ public class Lab_10_ex2
 		String expression = kb.nextLine();
 		
 		ArrayList<String>equation = new ArrayList<>(Arrays.asList(expression.split(" ")));
+		
 		doEquation(equation);
 	}
 	
-	public static ArrayList doEquation(ArrayList<String> equation)
+	public static void doEquation(ArrayList<String> equation)
 	{
 		int i = 0;
+		
 		while(i < equation.size())
 		{
 			if(equation.get(i).equals("*") || equation.get(i).equals("/"))
 			{
 				if(equation.get(i).equals("*"))
 				{
-					equation.set(Integer.parseInt(equation.get(i), Integer.parseInt(equation.get(i-1)) * Integer.parseInt(equation.get(i+1))));
+					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) * Integer.parseInt(equation.get(i+1))));
+					
 				}
-				
-				else
-				{
-					equation.set(Integer.parseInt(equation.get(i), Integer.parseInt(equation.get(i-1)) / Integer.parseInt(equation.get(i+1))));
+				if(equation.get(i).equals("/"))	
+				{	
+					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) / Integer.parseInt(equation.get(i+1))));
+					
 				}
 				equation.remove(i-1);
 				equation.remove(i);
 			}
-			i++;
+			else
+				i++;
 		}
+		i = 0;
 		
 		while(i < equation.size())
 		{
@@ -41,19 +47,22 @@ public class Lab_10_ex2
 			{
 				if(equation.get(i).equals("+"))
 				{
-					equation.set(Integer.parseInt(equation.get(i), Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
+					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
+					
 				}
-				
-				else
-				{
-					equation.set(Integer.parseInt(equation.get(i), Integer.parseInt(equation.get(i-1)) - Integer.parseInt(equation.get(i+1))));
+				if(equation.get(i).equals("-"))	
+				{	
+					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) - Integer.parseInt(equation.get(i+1))));
+					
 				}
 				equation.remove(i-1);
 				equation.remove(i);
 			}
-			i++;
+			else
+				i++;
 		}
 		
-		System.out.println(doEquation(equation));
+		System.out.println(equation);
 	}
+	
 }
