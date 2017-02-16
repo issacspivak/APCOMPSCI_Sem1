@@ -5,11 +5,13 @@ public abstract class Toy
 	
 	public Toy()
 	{
+		this.name = "";
 		this.count = 1;
 	}
 	
 	public Toy(String n)
 	{
+		this.name = n;
 		this.count = 1;
 	}
 	
@@ -25,12 +27,12 @@ public abstract class Toy
 	
 	public void setName(String n)
 	{
-		name = n;
+		this.name = n;
 	}
 	
 	public void setCount(int c)
 	{
-		count = c;
+		this.count = c;
 	}
 	
 	public abstract String getType();
@@ -38,7 +40,7 @@ public abstract class Toy
 	
 	public String toString()
 	{
-		return name + count;
+		return "There is " + count + " " + name;
 	}
 	
 	

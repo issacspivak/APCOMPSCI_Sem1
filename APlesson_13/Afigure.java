@@ -1,6 +1,5 @@
 public class Afigure extends Toy
 {
-	Afigure object = new Afigure();
 	
 	public Afigure()
 	{

@@ -1,6 +1,5 @@
 public class Car extends Toy
 {
-	Car object = new Car();
 	
 	public Car()
 	{
