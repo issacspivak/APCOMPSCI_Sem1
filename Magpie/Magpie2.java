@@ -37,7 +37,7 @@ public class Magpie2
 		else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0
+				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
@@ -56,14 +56,21 @@ public class Magpie2
 		 else if (findKeyword(statement, "dog") >= 0
 				|| findKeyword(statement, "cat") >= 0
 				|| findKeyword(statement, "fish") >= 0
-				|| findKeyword(statement, "turtle") >= 0
+				|| findKeyword(statement, "turtle") >= 0)
 				
 		{
 			response = "Tell me more about your pet.";
 		}
 		
-		else if 
-
+		else if(findKeyword(statement, "robinette", 0) >= 0)
+		{
+			response = "He sounds like a pretty dank teacher.";
+		}
+		else
+		{
+			response = getRandomResponse();
+		}
+		return response;
 	}
 
 	/** Ex_02: The findKeyword() Method...
@@ -85,29 +92,51 @@ public class Magpie2
 				beginning of the word
 					set before = the slot in phrase before psn */
 
-				//====>code here
+		String phrase = statement.trim().toLowerCase();
+		String before = " ";
+		String after = " ";
+		int psn = phrase.indexOf(goal, startPos);
+		
+		while(psn >= 0)
+		{
+			before = " ";
+			after = " ";
+			
+			if(psn > 0)
+			{
+				before = phrase.substring(psn - 1, psn);
+			}
 
 				/*check if you can fit goal into the rest of phrase - no need to
 				proceed otherwise
 					set after = the slot in phrase after psn + length of goal */
 
-				//=====> code here
+			if(goal.length() + psn < phrase.length())
+			{
+				after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
+			}
 
 				/* if before and after are not letters (compare before to "a"
 					and after to "z")
 						--return psn
 
 				Otherwise, search for goal in phrase from psn + 1 forward */
+			if((before.compareTo("a") < 0 || before.compareTo("z") > 0) && (after.compareTo("a") < 0 || after.compareTo("z") > 0))
+			{
+				return psn;
+			}
+			psn = phrase.indexOf(goal, psn + 1);
+		}
 
 		return -1;
 
 	}
 
 	/** Override - this method is used if there are only 2 parameters...*/
-	private int findKeyword(String statement, String goal)
+	private int findKeyword(String phrase, String goal)
 	{
 		//set startPos to 0 if not specified
-		return findKeyword(statement, goal, 0);
+		return findKeyword(phrase, goal, 0);
 	}
 
 	/** getRandomResponse() method
