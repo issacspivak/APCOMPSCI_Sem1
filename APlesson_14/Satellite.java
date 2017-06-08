@@ -17,9 +17,9 @@ public class Satellite
                "==========================" + "\nStarting locations...";
 
 
-       for (Location l : locate)
+       for(Location l : locate)
        {
-           printout += "\nLocation for " + ((Car)l).getID() + ": (" + getLocation(l.getLoc()) + ")";
+           printout += "\nLocation for " + l.getID() + ": (" + getLocation(l.getLoc()) + ")";
        }
 
 
@@ -27,10 +27,10 @@ public class Satellite
                    "\nDistance from home...";
 
 
-       for (Location l : locate)
+       for(Location l : locate)
        {
-           printout += "\nDistance for " + ((Car)l).getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
-			((Car)l).getID();
+           printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
+			l.getID();
        }
 	   
 			printout+= "\n\n" + "============================" + "\nMovement...";
@@ -39,10 +39,19 @@ public class Satellite
 			double two = 15;
 			for(Location l : locate)
 			{
-				((Car)l).move(one, two);
+				l.move(one, two);
 				
-				printout += "\nAfter " + ((Car)l).getID() + " Moved " + "(" + ones + ", " + two + ")\nNew Location: " + "(" + getLocation(l.getLoc()
-			} 
+				printout += "\nAfter " + l.getID() + " Moved " + "(" + one + ", " + two + ")\nNew Location: " + "(" + getLocation(l.getLoc()
+			}
+			
+			printout += "\n" + "==========================" + "\nDistance from home ...";
+			
+			for(Location 1 : locate)
+			{
+				printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc(), home) + ")";
+			}
+			
+			System.out.println(printout);
    }
 
 
@@ -57,3 +66,4 @@ public class Satellite
        return loc[0] + ", " + loc[1];
    }
 }
+

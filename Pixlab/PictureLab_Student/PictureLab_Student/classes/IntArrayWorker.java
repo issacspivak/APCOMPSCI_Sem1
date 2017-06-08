@@ -6,7 +6,51 @@ public class IntArrayWorker
   /** set the matrix to the passed one
     * @param theMatrix the one to use
     */
-  public void setMatrix(int[][] theMatrix)
+ 
+ public int getCount(int a)
+	{
+		int count = 0;
+		
+		for(int[] mat : matrix)
+		{
+			for(int m : mat)
+			{
+				if(m == a)
+				{
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+	
+	public int getLargest()
+	{
+		int largest = 0;
+		
+		for(int[] mat : matrix)
+		{
+			for(int m : mat)
+			{
+				if(m > largest)
+				{
+					largest = m;
+				}
+			}
+		}
+		return largest;
+	}
+	
+	public int getColTotal(int a)
+	{
+		int total = 0;
+		total += matrix[0][a];
+		total += matrix[1][a];
+		
+		return total;
+	}
+
+ public void setMatrix(int[][] theMatrix)
   {
     matrix = theMatrix;
   }
