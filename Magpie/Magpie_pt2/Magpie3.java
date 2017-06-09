@@ -62,11 +62,13 @@ public class Magpie3
 		}
 		else
 		{
+			//looks for a two word pattern: you (something) me
 			int psn = findKeyword(statement, "you", 0);
 			
 			if(psn >= 0 && findKeyword(statement, "me", psn) >= 0)
 			{
 				response = transformYouMeStatement(statement);
+				//if the two word pattern is found it will call the transformIWantToStatement to transform it
 			}
 			else
 			{
@@ -76,14 +78,20 @@ public class Magpie3
 		return response;
 	}
 	
+	//this method finds a statement with "I want to" and turns it into: "What would it mean to"
+	//returns the newly transformed statement
 	private String transformIWantToStatement(String statement)
 	{
+		//variable lastChar is the last character in a statement
 		String lastChar = statement.substring(statement.length()-1);
 		if(lastChar.equals("."))
 		{
+			//if the lastChar is a period it removes the last character from the statement
 			statement = statement.substring(0, statement.length()-1);
 		}
 		
+		//sets int to whats results from findKeyword() method @param statement for "I want to"
+		//sets new String restOfStatement to rest of statement following "I want to"
 		int psn = findKeyword(statement, "i want to");
 		String restOfStatement = statement.substring(psn + 9);
 		return "What would it mean to" + restOfStatement + "?";
@@ -91,27 +99,35 @@ public class Magpie3
 	
 	private String transformYouMeStatement(String statement)
 	{
+		//variable lastChar is the last character in a statement
 		String lastChar = statement.substring(statement.length()-1);
 		if(lastChar == ".")
 		{
+			//if the lastChar is a period it removes the last character from the statement
 			statement = statement.substring(0, statement.length()-1);
 		}
 		
+		//sets int psnOfYou to the result of findKeyword at statement and "you"
 		int psnOfYou = findKeyword(statement, "you");
+		//sets int psnOfMe to result of findKeyword at statement "me" and psnOfYou+3
 		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
 		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe);
 		return "What makes you think that I" + restOfStatement + "you?";
 	}
 	
+	
 	private String transformIYouStatement(String statement)
 	{
+		//also trims statement and removes period
 		String lastChar = statement.substring(statement.length()-1);
 		if(lastChar == ".")
 		{
 			statement = statement.substring(0, statement.length()-1);
 		}
 		
+		//sets int psnOfI to the result of findKeyword at statement and "i"
 		int psnOfI = findKeyword(statement, "i");
+		//sets int psnOfU to the result of findKeyword at statement "you", psnOfI+1
 		int psnOfU = findKeyword(statement, "you", psnOfI + 1);
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfU);
 		return "Why do you" + restOfStatement + "me?";
@@ -148,6 +164,8 @@ public class Magpie3
 			before = " ";
 			after = " ";
 			
+			
+			//checks if psn > 0 and if so will set before to the spot in phrase before psn
 			if(psn > 0)
 			{
 				before = phrase.substring(psn - 1, psn);
